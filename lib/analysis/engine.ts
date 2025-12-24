@@ -22,7 +22,8 @@ export async function getTopProductsByReviews(): Promise<ProductStats[]> {
     ...p,
     price: `$${p.price.toFixed(2)}`, // Format price back to string for UI
     description: `Best selling product: ${p.title}`,
-    affiliateLink: p.affiliateUrl // Map new model property to old type
+    affiliateLink: p.affiliateUrl, // Map new model property to old type
+    salesRank: p.salesRank ?? 0 // Ensure salesRank is a number
   }));
 }
 
@@ -32,7 +33,8 @@ export async function getTopBestSellers(): Promise<ProductStats[]> {
     ...p,
     price: `$${p.price.toFixed(2)}`,
     description: `Best selling book: ${p.title}`,
-    affiliateLink: p.affiliateUrl // Map new model property to old type
+    affiliateLink: p.affiliateUrl, // Map new model property to old type
+    salesRank: p.salesRank ?? 0 // Ensure salesRank is a number
   }));
 }
 

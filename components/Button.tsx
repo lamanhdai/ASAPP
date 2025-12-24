@@ -8,6 +8,7 @@ interface Props {
   disabled?: boolean;
   variant?: Variant;
   type?: 'button' | 'submit' | 'reset';
+  className?: string; // Add optional className
 }
 
 export function Button({
@@ -16,6 +17,7 @@ export function Button({
   disabled = false,
   variant = 'primary',
   type = 'button',
+  className = '', // Default to empty string
 }: Props) {
   const base = 'px-4 py-2 rounded font-medium focus:outline-none transition disabled:opacity-50 disabled:cursor-not-allowed';
   const styles: Record<Variant, string> = {
@@ -26,7 +28,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={`${base} ${styles[variant]}`}
+      className={`${base} ${styles[variant]} ${className}`}
       onClick={onClick}
       disabled={disabled}
     >
