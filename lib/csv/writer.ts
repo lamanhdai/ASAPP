@@ -6,7 +6,13 @@ import { ProductStats } from '@/lib/analysis/types';
 
 export async function writeCsv(rows: ProductStats[]): Promise<string> {
   const filename = generateCsvFilename();
-  const generatedDir = path.join(process.cwd(), 'generated');
+
+  // Use /tmp in production (Vercel), valid for serverless environment
+  // In specific Vercel cases, process.env.NODE_ENV is 'production'
+  const isProduction = process.env.NODE_ENV === 'production';
+  const generatedDir = isProduction
+    ? path.join('/tmp', 'generated')
+    : path.join(process.cwd(), 'generated');
 
   if (!fs.existsSync(generatedDir)) {
     fs.mkdirSync(generatedDir, { recursive: true });

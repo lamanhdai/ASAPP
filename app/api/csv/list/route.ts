@@ -3,7 +3,11 @@ import { readdirSync, existsSync, statSync } from 'fs';
 import path from 'path';
 
 export async function GET() {
-  const generatedDir = path.join(process.cwd(), 'generated');
+  const isProduction = process.env.NODE_ENV === 'production';
+  const generatedDir = isProduction
+    ? path.join('/tmp', 'generated')
+    : path.join(process.cwd(), 'generated');
+
   if (!existsSync(generatedDir)) return NextResponse.json({ files: [] });
 
   const files = readdirSync(generatedDir)

@@ -7,7 +7,9 @@ export async function GET(request: Request) {
   const file = searchParams.get('file');
   if (!file) return NextResponse.json({ error: 'Missing file' }, { status: 400 });
 
-  const filePath = path.join(process.cwd(), 'generated', file);
+  const isProduction = process.env.NODE_ENV === 'production';
+  const folder = isProduction ? path.join('/tmp', 'generated') : path.join(process.cwd(), 'generated');
+  const filePath = path.join(folder, file);
   if (!existsSync(filePath)) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
   const data = readFileSync(filePath, 'utf-8');
