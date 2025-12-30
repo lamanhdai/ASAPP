@@ -17,7 +17,7 @@ export async function generatePostsFromCsv(csvPath: string) {
 
     const postContent = buildMarkdownPost(record);
     const slug = slugify(record.title);
-    const filePath = path.join(postsDir, `${slug}.md`);
+    const filePath = path.join(postsDir, `${slug}.mdx`);
     fs.writeFileSync(filePath, postContent, 'utf-8');
   }
 }
