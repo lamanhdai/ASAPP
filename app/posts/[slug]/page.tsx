@@ -1,4 +1,4 @@
-import { getPostBySlug, getPostSlugs } from '@/lib/mdx';
+import { getPostBySlug, getPostSlugs } from '@/lib/posts-service';
 import { MDXRemote } from 'next-mdx-remote/rsc'; // Use RSC version for Next.js App Router
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
