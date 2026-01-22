@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
 
     const scriptPath = path.join(process.cwd(), 'scripts', 'generate_image.py');
 
-    return new Promise((resolve) => {
+    return await new Promise<NextResponse>((resolve) => {
       const pythonProcess = spawn('python', [scriptPath, prompt]);
 
       let stdoutData = '';
