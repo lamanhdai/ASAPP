@@ -15,7 +15,7 @@ export default function AssetsPage() {
 
     setIsGenerating(true);
     try {
-      const response = await fetch('/api/generate-image', {
+      const response = await fetch('/api/generate-image/generate_image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt }),
