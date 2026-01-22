@@ -7,7 +7,7 @@
     }
   ],
   "functions": {
-    "/app/api/generate-image/generate_image.py": {
+    "app/api/generate-image/generate_image.py": {
       "runtime": "python3.11",
       "maxDuration": 30
     }
