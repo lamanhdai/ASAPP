@@ -17,7 +17,7 @@ export default function AssetsPage() {
     try {
       const response = await fetch('/api/generate-image/generate_image', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `UMBBDPJxinC5UDOMxTNadXMD` },
         body: JSON.stringify({ prompt }),
       });
 
