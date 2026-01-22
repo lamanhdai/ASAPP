@@ -5,11 +5,5 @@
       "path": "/api/cron/weekly-analysis",
       "schedule": "0 0 * * 0"
     }
-  ],
-  "functions": {
-    "app/api/generate-image/generate_image.py": {
-      "runtime": "python3.11",
-      "maxDuration": 30
-    }
-  }
+  ]
 }
