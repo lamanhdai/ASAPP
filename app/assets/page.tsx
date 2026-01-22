@@ -25,6 +25,7 @@ export default function AssetsPage() {
       if (data.imageUrl) {
         setGeneratedUrl(data.imageUrl);
       } else {
+
         alert(data.error || 'Failed to generate image');
       }
     } catch (err) {
